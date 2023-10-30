@@ -17,8 +17,10 @@ public class DecimalToOctal {
         int decimalNumber = input.nextInt();
 
         String octal = decimalToOctal(decimalNumber);
+        String binary = decimalToBinary(decimalNumber);
 
         System.out.println("Hasil konversi ke oktal : " + octal);
+        System.out.println("Hasil konversi ke binary : " + binary);
 
         input.close();
     }
@@ -37,5 +39,15 @@ public class DecimalToOctal {
             decimalNumber = decimalNumber / 8;
         }
         return octal.toString();
+    }
+
+    public static String decimalToBinary(int decimalNumber) {
+        StringBuilder binary = new StringBuilder();
+        while (decimalNumber > 0) {
+            int remainder = decimalNumber % 2;
+            binary.insert(0, remainder);
+            decimalNumber = decimalNumber / 2;
+        }
+        return binary.toString();
     }
 }
